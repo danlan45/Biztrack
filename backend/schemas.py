@@ -1,7 +1,6 @@
 
 from pydantic import BaseModel
 
-# Product
 class ProductBase(BaseModel):
     name: str
     price: float
@@ -16,8 +15,6 @@ class Product(ProductBase):
     class Config:
         from_attributes = True
 
-
-# Sale
 class SaleBase(BaseModel):
     product_id: int
     quantity_sold: int
@@ -27,16 +24,14 @@ class SaleCreate(SaleBase):
 
 class Sale(SaleBase):
     id: int
-    amount: float
 
     class Config:
         from_attributes = True
 
-
-# Expense
 class ExpenseBase(BaseModel):
     description: str
     amount: float
+    category: str
 
 class ExpenseCreate(ExpenseBase):
     pass
